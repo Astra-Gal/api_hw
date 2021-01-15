@@ -1,12 +1,14 @@
 <template>
   <div id="app">
     <h1>Adventures in the Rijksmuseum</h1>
+    <dolls-houses></dolls-houses>
 
   </div>
 </template>
 
 <script>
 import config from '../config.js'
+import DollsHouses from './components/DollsHouses.vue'
 
 export default {
   name: 'App',
@@ -17,7 +19,7 @@ export default {
     }
   },
   components: {
-// components go here
+    'dolls-houses': DollsHouses
   },
   mounted() {
     fetch(`https://www.rijksmuseum.nl/api/en/collection?key=Yye8TNJH&q=Doll+house&imgonly=True`)
