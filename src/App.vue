@@ -1,19 +1,31 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Adventures in the Rijksmuseum</h1>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import config from '../config.js'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      things: [],
+      selectedThing: null
+    }
+  },
   components: {
-    HelloWorld
+// components go here
+  },
+  mounted() {
+    fetch(`https://www.rijksmuseum.nl/api/en/collection?key=Yye8TNJH&q=Doll+house&imgonly=True`)
+    .then(response => console.log(response.json()))
+
   }
 }
+
 </script>
 
 <style>
