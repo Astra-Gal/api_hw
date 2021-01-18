@@ -1,0 +1,46 @@
+I have an array of objects - let's call it dollList. Each of these objects has several key:value pairs, 
+but I am only interested in three of them, and I'm having some trouble accessing them.
+
+Firstly I want to filter my array so that it only includes objects where the value of 
+the key 'title' includes "Dolls' house".
+
+I tried...
+
+const getDollTitles = function(dollList) {
+    dollList.filter(dollshouse) => {
+        return dollshouse.title.includes("Dolls' house");
+
+    }
+}
+- returns undefined
+
+
+So then I thought maybe .includes() looks for an exact string match, so I tried: 
+const getDollTitles = function(dollList) {
+    dollList.filter((dollshouse) => {
+        return dollshouse.title === "Dolls' house of Petronella Oortman";
+    })
+    }
+But this also returns 'undefined'.
+
+const getDollTitles = function(dollList) {
+    const dollTitle = dollList.filter((dollshouse) => {
+        return dollshouse.title.includes("Dolls' house of Petronella Oortman");
+    })
+    return dollTitle;
+    }
+
+This returns an empty array.
+
+
+So then I thought, what if I turn all the objects into nested arrays with Object.entries
+
+const getDollTitles = function(dollList) {
+    let dollArray = Object.entries(dollList);
+    let dollHouseTitles = dollArray.filter((dollshouse) => {
+        return dollshouse.title.includes("Dolls' house of Petronella Oortman");
+    })
+ }
+ This throws the error 'cannot read property 'includes' of undefined'... clearly
+ I'm going round in circles! I'll continue reading the class notes and googling, but 
+ if anyone has any bright ideas about this, I'd love to hear them!
